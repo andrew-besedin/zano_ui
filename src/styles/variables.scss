@@ -28,6 +28,7 @@
     --success-color: #16d1d6;
     --alert-success-color: #16d1d61a;
     --focus-off-bg: #00000099;
+    --alert-bg: rgba(35, 52, 103, 1);
 }
 
 html[data-theme='light'] {
@@ -48,4 +49,5 @@ html[data-theme='light'] {
     --accordion-color: transparent;
     --input-bg: #f4f8fc;
     --input-border-color: #0c0c3a33;
+    --alert-bg: rgba(210, 232, 251, 1);
 }
