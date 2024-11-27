@@ -34,7 +34,7 @@ const links: {
     {
         title: "Auction",
         type: "auction",
-        link: "https://wrapped.zano.org/"
+        link: "https://auction.zano.org/"
     },
     {
         title: "Messenger",
