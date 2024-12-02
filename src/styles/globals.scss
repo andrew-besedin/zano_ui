@@ -12,20 +12,20 @@ body {
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--zano-ui-bg-color);
+    color: var(--zano-ui-text-color);
 }
 
 // custom scrollbar
 
 ::-webkit-scrollbar {
-    background: var(--bg-color);
+    background: var(--zano-ui-bg-color);
     width: 4px;
     height: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background: var(--zano-ui-primary-color);
 }
 
 // contianer for sections

@@ -1,6 +1,6 @@
 .ui__alert {
     width: 420px;
-    background: var(--alert-bg);
+    background: var(--zano-ui-alert-bg);
     border-radius: 10px;
     padding: 20px;
     position: fixed;
@@ -28,24 +28,25 @@
 
     .ui__alert__data {
         p {
-            color: var(--font-dimmed-color);
+            color: var(--zano-ui-font-dimmed-color);
             line-height: 150%;
         }
     }
 
-    .ui__alert__success, .ui__alert__error {
+    .ui__alert__success,
+    .ui__alert__error {
         width: 64px;
         min-width: 64px;
         height: 64px;
-        background: #16D1D6;
+        background: #16d1d6;
         border-radius: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
+
     .ui__alert__error {
-        background: #FF6767;
+        background: #ff6767;
     }
 
     .ui__alert__loader {
@@ -55,7 +56,6 @@
         }
     }
 
-
     @media screen and (max-width: 500px) {
         width: calc(100% - 40px);
         gap: 15px;
@@ -64,7 +64,7 @@
             h3 {
                 font-size: 24px;
             }
-            
+
             p {
                 font-size: 18px;
             }

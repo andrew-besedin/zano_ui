@@ -6,7 +6,7 @@
     transform: translateX(-50%);
     max-width: 454px;
     width: 100%;
-    background-color: var(--popup-modal-color);
+    background-color: var(--zano-ui-popup-modal-color);
     border-radius: 10px;
     padding: 20px;
 
@@ -31,12 +31,12 @@
             path {
                 transition: 0.3s all ease;
 
-                fill: var(--text-color);
+                fill: var(--zano-ui-text-color);
             }
 
             &:hover {
                 path {
-                    fill: var(--primary-color);
+                    fill: var(--zano-ui-primary-color);
                 }
             }
         }
@@ -57,7 +57,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--focus-off-bg);
+    background-color: var(--zano-ui-focus-off-bg);
 }
 
 @media screen and (max-width: 480px) {

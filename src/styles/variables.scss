@@ -1,53 +1,53 @@
 // Varribles
 :root {
-    --bg-color: #0c0c3a;
-    --text-color: #ffffff;
-    --gray-color: #ffffffb2;
-    --primary-color: #1f8feb;
-    --primary-hover-color: #4ca5ef;
-    --primary-gradient: radial-gradient(
+    --zano-ui-bg-color: #0c0c3a;
+    --zano-ui-text-color: #ffffff;
+    --zano-ui-gray-color: #ffffffb2;
+    --zano-ui-primary-color: #1f8feb;
+    --zano-ui-primary-hover-color: #4ca5ef;
+    --zano-ui-primary-gradient: radial-gradient(
         100% 188.88% at 0% 0%,
         #16d1d6 0%,
         #274cff 100%
     );
-    --bg-gradient: radial-gradient(
+    --zano-ui-bg-gradient: radial-gradient(
         50% 50% at 50% 50%,
         #003498 0%,
         rgba(0, 52, 152, 0) 100%
     );
-    --border-color: #ffffff1a;
-    --section-bg-color: #12124b;
-    --accordion-color: #121248;
-    --popup-color: #11316b;
-    --popup-modal-color: #0f2055;
-    --danger-color: #ff6767;
-    --font-dimmed-color: #8d95ae;
-    --footer-selected-link: #ffffffcc;
-    --input-bg: #ffffff1a;
-    --input-border-color: #ffffff4d;
-    --success-color: #16d1d6;
-    --alert-success-color: #16d1d61a;
-    --focus-off-bg: #00000099;
-    --alert-bg: rgba(35, 52, 103, 1);
+    --zano-ui-border-color: #ffffff1a;
+    --zano-ui-section-bg-color: #12124b;
+    --zano-ui-accordion-color: #121248;
+    --zano-ui-popup-color: #11316b;
+    --zano-ui-popup-modal-color: #0f2055;
+    --zano-ui-danger-color: #ff6767;
+    --zano-ui-font-dimmed-color: #8d95ae;
+    --zano-ui-footer-selected-link: #ffffffcc;
+    --zano-ui-input-bg: #ffffff1a;
+    --zano-ui-input-border-color: #ffffff4d;
+    --zano-ui-success-color: #16d1d6;
+    --zano-ui-alert-success-color: #16d1d61a;
+    --zano-ui-focus-off-bg: #00000099;
+    --zano-ui-alert-bg: rgba(35, 52, 103, 1);
 }
 
 html[data-theme='light'] {
-    --bg-color: #fcfcfc;
-    --text-color: #0c0c3a;
-    --border-color: #e3e3e8;
-    --section-bg-color: #ffffff;
-    --font-dimmed-color: #535374;
-    --gray-color: #000000b2;
-    --footer-selected-link: #0c0c3a;
-    --bg-gradient: radial-gradient(
+    --zano-ui-bg-color: #fcfcfc;
+    --zano-ui-text-color: #0c0c3a;
+    --zano-ui-border-color: #e3e3e8;
+    --zano-ui-section-bg-color: #ffffff;
+    --zano-ui-font-dimmed-color: #535374;
+    --zano-ui-gray-color: #000000b2;
+    --zano-ui-footer-selected-link: #0c0c3a;
+    --zano-ui-bg-gradient: radial-gradient(
         50% 50% at 50% 50%,
         #a3c7ff 0%,
         rgba(163, 199, 255, 0) 100%
     );
-    --popup-color: #dbecfa;
-    --popup-modal-color: #d2e8fb;
-    --accordion-color: transparent;
-    --input-bg: #f4f8fc;
-    --input-border-color: #0c0c3a33;
-    --alert-bg: rgba(210, 232, 251, 1);
+    --zano-ui-popup-color: #dbecfa;
+    --zano-ui-popup-modal-color: #d2e8fb;
+    --zano-ui-accordion-color: transparent;
+    --zano-ui-input-bg: #f4f8fc;
+    --zano-ui-input-border-color: #0c0c3a33;
+    --zano-ui-alert-bg: rgba(210, 232, 251, 1);
 }
