@@ -39,7 +39,7 @@ const links: {
     {
         title: "Messenger",
         type: "messenger",
-        link: "https://zano.org/"
+        link: "https://messenger.zano.org/"
     },
     {
         title: "Wrapped Zano",
