@@ -2,6 +2,9 @@
   "name": "zano_ui",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": ["dist/**/*"],
   "scripts": {
     "dev": "next dev",
     "build": "webpack --config webpack.config.js --mode=production",
