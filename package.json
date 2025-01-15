@@ -44,5 +44,10 @@
     "typescript": "^5",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "next": "^13"
   }
 }

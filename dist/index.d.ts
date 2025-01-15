@@ -1,5 +1,5 @@
-import * as react from 'react';
-import react__default, { ReactNode, FC } from 'react';
+import * as react_jsx_runtime from 'react/jsx-runtime';
+import React, { ReactNode, FC } from 'react';
 
 type AlertType = "success" | "error" | 'loading' | null;
 interface AlertProps {
@@ -9,9 +9,9 @@ interface AlertProps {
     close: () => any;
 }
 
-declare function Alert(props: AlertProps): react.JSX.Element;
+declare function Alert(props: AlertProps): react_jsx_runtime.JSX.Element;
 
-declare function Footer(): react.JSX.Element;
+declare function Footer(): react_jsx_runtime.JSX.Element;
 
 interface PopupProps$1 {
     children: ReactNode;
@@ -20,7 +20,7 @@ interface PopupProps$1 {
     show: boolean;
 }
 
-declare const Modal: ({ children, title, onClose, show }: PopupProps$1) => react__default.ReactPortal | null;
+declare const Modal: ({ children, title, onClose, show }: PopupProps$1) => React.ReactPortal | null;
 
 interface PopupProps<T extends {} = {}> {
     Content: FC<{
@@ -34,13 +34,13 @@ interface PopupProps<T extends {} = {}> {
     classList?: string[];
 }
 
-declare function Popup<ContentProps extends {}>(props: PopupProps<ContentProps>): react.JSX.Element;
+declare function Popup<ContentProps extends {}>(props: PopupProps<ContentProps>): react_jsx_runtime.JSX.Element;
 
 interface PreloaderProps {
     className?: string;
     fullPage?: boolean;
 }
 
-declare function Preloader(props: PreloaderProps): react.JSX.Element;
+declare function Preloader(props: PreloaderProps): react_jsx_runtime.JSX.Element;
 
 export { Alert, Footer, Modal, Popup, Preloader };
