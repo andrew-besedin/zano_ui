@@ -12,7 +12,6 @@ export default {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
         library: {
-            name: 'zano_ui',
             type: 'module'
         },
         globalObject: 'this',
@@ -71,5 +70,8 @@ export default {
         'react': 'react',
         'react-dom': 'react-dom',
         'next': 'next',
+    },
+    experiments: {
+        outputModule: true,
     },
 };
