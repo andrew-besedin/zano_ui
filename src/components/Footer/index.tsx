@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { classes } from '../../utils';
+import { classes } from '@/utils';
 import styles from "./styles.module.scss";
 import Link from 'next/link';
 

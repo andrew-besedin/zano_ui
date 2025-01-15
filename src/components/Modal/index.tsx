@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import React from 'react';
 import styles from './styles.module.scss';
 import PopupProps from './types';
-import XmarkIcon from "../../assets/xmark.svg";
+import XmarkIcon from "@/assets/xmark.svg";
 
 // Universal Popup Component
 const Modal = ({ children, title, onClose, show }: PopupProps) => {

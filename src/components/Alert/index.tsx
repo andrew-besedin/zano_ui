@@ -1,10 +1,11 @@
 import styles from "./styles.module.scss";
-import SuccessIcon from "../../assets/success.svg";
-import SmallCrossIcon from "../../assets/cross_icon_small.svg";
-import ErrorIcon from "../../assets/error.svg";
+import SuccessIcon from "@/assets/success.svg";
+import SmallCrossIcon from "@/assets/cross_icon_small.svg";
+import ErrorIcon from "@/assets/error.svg";
 import AlertProps from "./types";
 import Preloader from "../Preloader";
 import Popup from "../Popup";
+
 function Alert(props: AlertProps) {
     const types = {
         'success': {
