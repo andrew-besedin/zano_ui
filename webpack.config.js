@@ -13,7 +13,8 @@ export default {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
         library: {
-            type: 'module'
+            name: "zano_ui",
+            type: 'umd'
         },
         globalObject: 'this',
         publicPath: '/',
@@ -29,7 +30,16 @@ export default {
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                            '@babel/preset-typescript',
+                        ],
+                    },
+                },
             },
             {
                 test: /\.(js|jsx)$/,
