@@ -1,6 +1,7 @@
 import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,23 +43,25 @@ export default {
             {
                 test: /\.module\.scss$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
                             modules: {
                                 localIdentName: '[local]__[hash:base64:5]',
+                                exportLocalsConvention: 'camelCaseOnly',
                             },
                             sourceMap: true,
+                            esModule: false,
                         },
                     },
-                    'sass-loader',
+                    'sass-loader'
                 ],
             },
             {
                 test: /\.scss$/,
                 exclude: /\.module\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.svg$/,
@@ -74,4 +77,9 @@ export default {
     experiments: {
         outputModule: true,
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css', 
+        }),
+    ],
 };
