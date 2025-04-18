@@ -28,15 +28,20 @@
         }
 
         .xmark {
-            path {
-                transition: 0.3s all ease;
+            width: 25px;
+            height: 25px;
 
-                fill: var(--zano-ui-text-color);
-            }
-
-            &:hover {
+            svg {
                 path {
-                    fill: var(--zano-ui-primary-color);
+                    transition: 0.3s all ease;
+
+                    fill: var(--zano-ui-text-color);
+                }
+
+                &:hover {
+                    path {
+                        fill: var(--zano-ui-primary-color);
+                    }
                 }
             }
         }

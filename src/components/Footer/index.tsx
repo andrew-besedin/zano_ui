@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { classes } from '../../utils';
@@ -57,9 +58,11 @@ function Footer() {
     const [selectedLink, setRecognizedLink] = useState<SelectedLink | null>(null);
 
     useEffect(() => {
-        const currentDomain = window.location.hostname;
-        const match = links.find(link => link.link.includes(currentDomain));
-        setRecognizedLink(match ? match.type : null);
+        if (typeof window !== 'undefined') {
+            const currentDomain = window.location.hostname;
+            const match = links.find(link => link.link.includes(currentDomain));
+            setRecognizedLink(match ? match.type : null);
+        }
     }, []);
 
 

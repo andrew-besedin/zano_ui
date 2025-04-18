@@ -1,3 +1,4 @@
+"use client"
 import * as ReactDOM from 'react-dom';
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
