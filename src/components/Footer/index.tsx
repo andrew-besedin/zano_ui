@@ -25,7 +25,7 @@ const footerLinks: FooterSection[] = [
         links: [
             { label: "Exchange", href: "https://zano.org/ecosystem/exchanges", external: true, disabled: true },
             { label: "Easy Swap", href: "#", external: true, disabled: true },
-            { label: "P2P Trading", href: "#", external: true },
+            { label: "P2P Trading", href: "https://trade.zano.org/", external: true },
             { label: "Docs", href: "https://docs.zano.org/", external: true }
         ]
     },
