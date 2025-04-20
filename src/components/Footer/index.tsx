@@ -23,10 +23,10 @@ const footerLinks: FooterSection[] = [
     {
         title: "Zano Trade",
         links: [
-            { label: "Exchange", href: "#" },
-            { label: "Easy Swap", href: "#" },
-            { label: "P2P Trading", href: "#" },
-            { label: "Docs", href: "#" }
+            { label: "Exchange", href: "https://zano.org/ecosystem/exchanges", external: true, disabled: true },
+            { label: "Easy Swap", href: "#", external: true, disabled: true },
+            { label: "P2P Trading", href: "#", external: true },
+            { label: "Docs", href: "#", external: true }
         ]
     },
     {
@@ -35,10 +35,10 @@ const footerLinks: FooterSection[] = [
             { label: "Zano.org", href: "https://zano.org/", external: true },
             { label: "Explorer", href: "https://explorer.zano.org/", external: true },
             { label: "Wrapped Zano", href: "https://wrapped.zano.org/", external: true },
-            { label: "Messanger", href: "#", external: true },
-            { label: "Exchanges", href: "#", external: true },
-            { label: "Wallets", href: "#", external: true },
-            { label: "Projects", href: "https://github.com/hyle-team/zano", external: true }
+            { label: "Messanger", href: "https://messenger.zano.org/", external: true },
+            { label: "Exchanges", href: "https://zano.org/ecosystem/exchanges", external: true },
+            { label: "Wallets", href: "https://zano.org/ecosystem/wallets", external: true },
+            { label: "Projects", href: "https://zano.org/ecosystem/projects", external: true }
         ],
         grid: true,
     }
@@ -104,9 +104,16 @@ function Footer() {
                                 <h5 className={styles.title}>{section.title}</h5>
                                 <div className={classes(styles.footer__links_item__links, section.grid && styles.grid)}>
                                     {section.links.map((link, j) => (
-                                        <Link className={styles.link} key={j} href={link.href} target={link.external ? "_blank" : "_self"}>
-                                            {link.label} {link.external && <BlankIcon />}
-                                        </Link>
+                                        <div
+                                            style={{ 
+                                                pointerEvents: link.disabled ? "none" : "auto",
+                                                opacity: link.disabled ? 0.5 : 1,
+                                            }}
+                                        >
+                                            <Link className={styles.link} key={j} href={link.href} target={link.external ? "_blank" : "_self"}>
+                                                {link.label} {link.external && <BlankIcon />}
+                                            </Link>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
