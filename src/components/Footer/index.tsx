@@ -105,7 +105,8 @@ function Footer() {
                                 <div className={classes(styles.footer__links_item__links, section.grid && styles.grid)}>
                                     {section.links.map((link, j) => (
                                         <div
-                                            style={{ 
+                                            key={j}
+                                            style={{
                                                 pointerEvents: link.disabled ? "none" : "auto",
                                                 opacity: link.disabled ? 0.5 : 1,
                                             }}
