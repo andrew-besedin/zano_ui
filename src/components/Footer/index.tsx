@@ -35,7 +35,7 @@ const footerLinks: FooterSection[] = [
             { label: "Zano.org", href: "https://zano.org/", external: true },
             { label: "Explorer", href: "https://explorer.zano.org/", external: true },
             { label: "Wrapped Zano", href: "https://wrapped.zano.org/", external: true },
-            { label: "Messanger", href: "https://messenger.zano.org/", external: true },
+            { label: "Messenger", href: "https://messenger.zano.org/", external: true },
             { label: "Exchanges", href: "https://zano.org/ecosystem/exchanges", external: true },
             { label: "Wallets", href: "https://zano.org/ecosystem/wallets", external: true },
             { label: "Projects", href: "https://zano.org/ecosystem/projects", external: true }
