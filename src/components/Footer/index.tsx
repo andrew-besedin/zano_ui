@@ -72,7 +72,7 @@ const donationData: DonationItem[] = [
     }
 ];
 
-function Footer() {
+function Footer({className}: {className?: string}) {
     const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -95,7 +95,7 @@ function Footer() {
     };
 
     return (
-        <footer className={styles.footer}>
+        <footer className={classes(styles.footer, className)}>
             <div className={styles.footer__wrapper}>
                 <div className={styles.footer__content}>
                     <div className={styles.footer__links}>
