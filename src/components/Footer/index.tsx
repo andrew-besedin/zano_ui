@@ -149,7 +149,7 @@ function Footer({className}: {className?: string}) {
                         <Link className={styles.socials__item} href="https://blog.zano.org/" target="_blank">
                             <BlogIcon />
                         </Link>
-                        <Link className={styles.socials__item} href="https://discord.com/invite/zano" target="_blank">
+                        <Link className={styles.socials__item} href="https://discord.gg/wE3rmYY" target="_blank">
                             <DiscordIcon />
                         </Link>
                         <Link className={styles.socials__item} href="https://twitter.com/zano_project" target="_blank">
