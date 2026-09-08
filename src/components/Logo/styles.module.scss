@@ -1,0 +1,21 @@
+.logo {
+    &__dark {
+        display: block;
+    }
+
+    &__light {
+        display: none;
+    }
+}
+
+html[data-theme='light'] {
+    .logo {
+        &__dark {
+            display: none;
+        }
+
+        &__light {
+            display: block;
+        }
+    }
+}
