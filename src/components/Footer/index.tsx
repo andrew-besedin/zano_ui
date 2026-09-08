@@ -1,122 +1,174 @@
 'use client';
-
-import React, { useRef, useState } from 'react';
-import Logo from '../Logo';
-import ZanoBigIcon from '../../assets/zano_big.svg';
-import styles from './styles.module.scss';
-import DonationPopup from './components/DonationPopup';
-import NewsletterForm from './components/NewsletterForm';
-import Popup from '../Popup';
-import { classes } from '../../utils';
+import styles from "./styles.module.scss";
 import Link from 'next/link';
+import BlankIcon from "../../assets/blank.svg";
+import CopyIcon from "../../assets/copy.svg";
+import ZanoIcon from "../../assets/zano_ico.svg";
+import BTCIcon from "../../assets/bitcoin_ico.svg";
+import BCHIcon from "../../assets/bch_ico.svg";
+import ETHIcon from "../../assets/ethereum_ico.svg";
+// import XMRIcon from "../../assets/monero_ico.svg";
+import BlogIcon from "../../assets/blog_ico.svg";
+import DiscordIcon from "../../assets/discord_ico.svg";
+import TwitterIcon from "../../assets/twitter_ico.svg";
+import TelegramIcon from "../../assets/telegram_ico.svg";
+import YoutubeIcon from "../../assets/youtube_ico.svg";
+import RedditIcon from "../../assets/reddit_ico.svg";
+import CheckedIcon from "../../assets/checked.svg";
+import { DonationItem, FooterSection } from "./types";
+import { classes } from "../../utils";
+import { useRef, useState } from "react";
 
-const Footer = () => {
-    const [donation, setDonation] = useState(false);
-    const logoRef = useRef<HTMLDivElement>(null);
+const footerLinks: FooterSection[] = [
+    {
+        title: "Zano Trade",
+        links: [
+            { label: "Exchange", href: "https://zano.org/ecosystem/exchanges", external: true, disabled: true },
+            { label: "Easy Swap", href: "#", external: true, disabled: true },
+            { label: "P2P Trading", href: "https://trade.zano.org/", external: true },
+            { label: "Docs", href: "https://docs.zano.org/", external: true }
+        ]
+    },
+    {
+        title: "Ecosystem",
+        links: [
+            { label: "Zano.org", href: "https://zano.org/", external: true },
+            { label: "Explorer", href: "https://explorer.zano.org/", external: true },
+            { label: "Wrapped Zano", href: "https://wrapped.zano.org/", external: true },
+            { label: "Messenger", href: "https://messenger.zano.org/", external: true },
+            { label: "Exchanges", href: "https://zano.org/ecosystem/exchanges", external: true },
+            { label: "Wallets", href: "https://zano.org/ecosystem/wallets", external: true },
+            { label: "Projects", href: "https://zano.org/ecosystem/projects", external: true }
+        ],
+        grid: true,
+    }
+];
 
-    const openDonationPopup = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        e.preventDefault();
-        setDonation(true);
-    };
+const donationData: DonationItem[] = [
+    {
+        name: "ZANO",
+        icon: <ZanoIcon />,
+        address: "@dev"
+    },
+    {
+        name: "BTC",
+        icon: <BTCIcon />,
+        address: "bc1qpa8w8eaehlplfepmnzpd7v9j046899nktxnkxp"
+    },
+    {
+        name: "BCH",
+        icon: <BCHIcon />,
+        address: "qqgq078vww5exd9kt3frx6krdyznmp80hcygzlgqzd"
+    },
+    {
+        name: "ETH",
+        icon: <ETHIcon />,
+        address: "0x206c52b78141498e74FF074301ea90888C40c178"
+    },
+    // {
+    //     name: "XMR",
+    //     icon: <XMRIcon />,
+    //     address: "45gp9WTobeB5Km3kLQgVmPJkvm9rSmg4gdyHheXqXijXYMjUY48kLgL7QEz5Ar8z9vQioQ68WYDKsQsjAEonSeFX4UeLSiX"
+    // }
+];
 
-    const handleFooterMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-        const el = logoRef.current;
-        if (!el) return;
+function Footer({className}: {className?: string}) {
+    const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-        const rect = el.getBoundingClientRect();
-        const isOverLogo =
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom;
+    const onHandleCopy = (address: string, index: number) => {
+        try {
+            window.navigator.clipboard.writeText(address);
+            setCopiedIndex(index);
 
-        el.style.setProperty('--x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
-        el.style.setProperty('--y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
-        el.style.setProperty('--glow-opacity', isOverLogo ? '1' : '0');
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+
+            timeoutRef.current = setTimeout(() => {
+                setCopiedIndex(null);
+                timeoutRef.current = null;
+            }, 2000);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
-        <>
-            <footer
-                className={classes(styles.footer, 'container')}
-                onMouseMove={handleFooterMouseMove}
-            >
-                <div className={styles.footer__top}>
-                    <Logo />
-
-                    <h6 className={styles.footer__top_text}>Your privacy matters. Choose Zano, the leading blockchain platform that prioritises confidentiality and security.</h6>
-                </div>
-
-                <div className={styles.footer__newsletter}>
-                    <p className={styles.footer__newsletter_title}>
-                       Subscribe to Our Newsletter
-                    </p>
-                    <p className={styles.footer__newsletter_desc}>
-                       And be among the first to know about updates
-                    </p>
-
-                    <NewsletterForm />
-                </div>
-
-                <div className={styles.footer__links}>
-                    <div className={styles.footer__links_item}>
-                        <p className={styles.title}>Zano</p>
-                        <Link target='_blank' href="https://zano.org/team">Team</Link>
-                        <Link target='_blank' href="https://zano.org/roadmap">Roadmap</Link>
-                        <Link target='_blank' href="https://zano.org/wallets">Downloads</Link>
-                        <Link target='_blank' href="#" onClick={openDonationPopup}>
-                           💙 Support Zano
-                        </Link>
+        <footer className={classes(styles.footer, className)}>
+            <div className={styles.footer__wrapper}>
+                <div className={styles.footer__content}>
+                    <div className={styles.footer__links}>
+                        {footerLinks.map((section, i) => (
+                            <div className={styles.footer__links_item} key={i}>
+                                <h5 className={styles.title}>{section.title}</h5>
+                                <div className={classes(styles.footer__links_item__links, section.grid && styles.grid)}>
+                                    {section.links.map((link, j) => (
+                                        <div
+                                            key={j}
+                                            style={{
+                                                pointerEvents: link.disabled ? "none" : "auto",
+                                                opacity: link.disabled ? 0.5 : 1,
+                                            }}
+                                        >
+                                            <Link className={styles.link} key={j} href={link.href} target={link.external ? "_blank" : "_self"}>
+                                                {link.label} {link.external && <BlankIcon />}
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
-                    <div className={styles.footer__links_item}>
-                        <p className={styles.title}>Resources</p>
-                        <Link target='_blank' href="https://blog.zano.org/">
-                            Blog
-                        </Link>
-                        <Link target='_blank' href="https://forum.zano.org/">
-                          Forum
-                        </Link>
-                        <Link target='_blank' href="https://docs.zano.org/">
-                        Docs
-                        </Link>
-                        <Link target='_blank' href="https://github.com/hyle-team/zano">
-                           GitHub
-                        </Link>
-                        <Link target='_blank' href="https://explorer.zano.org/">
-                           Explorer
-                        </Link>
-                        <Link target='_blank' href="https://zano.org/media-kit">Media Kit</Link>
-                    </div>
-
-                    <div className={styles.footer__links_item}>
-                        <p className={styles.title}>Support</p>
-                        <Link target='_blank' href="https://zano.org/support">Contact Us</Link>
-                        <Link target='_blank' href="https://zano.org/terms">Terms of Use</Link>
-                        <Link target='_blank' href="https://zano.org/privacy-policy">Privacy Policy</Link>
+                    <div className={styles.footer__donation}>
+                        <h5 className={styles.title}>Donation 💙</h5>
+                        <div className={styles.footer__donation_content}>
+                            {donationData.map((donation, i) => (
+                                <div className={styles.donation} key={i}>
+                                    <div className={styles.donation__info}>
+                                        {donation.icon}
+                                        <p className={styles.name}>{donation.name}</p>
+                                    </div>
+                                    <div className={styles.donation__address}>
+                                        <span className={styles.donation__address_item}>{donation.address}</span>
+                                        <button onClick={() => onHandleCopy(donation.address, i)} className={styles.copy}>
+                                            {copiedIndex === i ? <CheckedIcon /> : <CopyIcon />}
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                <p className={styles.footer__bottom}>
-                    Copyright © {new Date().getFullYear()} ZANO.org
-                </p>
+                <div className={styles.footer__bottom}>
+                    <p className={styles.copyright}>Copyright © {(new Date()).getFullYear()} ZANO.org</p>
 
-                <div ref={logoRef} className={styles.footer__logo}>
-                    <ZanoBigIcon width={'100%'} height={'100%'} className={styles.logoBase} />
-                    <ZanoBigIcon width={'100%'} height={'100%'} className={styles.logoGlow} />
+                    <div className={styles.socials}>
+                        <Link className={styles.socials__item} href="https://blog.zano.org/" target="_blank">
+                            <BlogIcon />
+                        </Link>
+                        <Link className={styles.socials__item} href="https://discord.gg/wE3rmYY" target="_blank">
+                            <DiscordIcon />
+                        </Link>
+                        <Link className={styles.socials__item} href="https://twitter.com/zano_project" target="_blank">
+                            <TwitterIcon />
+                        </Link>
+                        <Link className={styles.socials__item} href="https://t.me/zanocoin" target="_blank">
+                            <TelegramIcon />
+                        </Link>
+                        <Link className={styles.socials__item} href="https://www.youtube.com/@zanoproject" target="_blank">
+                            <YoutubeIcon />
+                        </Link>
+                        <Link className={styles.socials__item} href="https://www.reddit.com/r/Zano" target="_blank">
+                            <RedditIcon />
+                        </Link>
+                    </div>
                 </div>
-            </footer>
-
-            {donation && (
-                <Popup
-                    Content={DonationPopup}
-                    close={() => setDonation(false)}
-                    settings={{}}
-                    blur
-                />
-            )}
-        </>
+            </div>
+        </footer>
     );
-};
+}
 
 export default Footer;
