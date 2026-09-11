@@ -7,7 +7,7 @@ import ZanoIcon from "../../assets/zano_ico.svg";
 import BTCIcon from "../../assets/bitcoin_ico.svg";
 import BCHIcon from "../../assets/bch_ico.svg";
 import ETHIcon from "../../assets/ethereum_ico.svg";
-import XMRIcon from "../../assets/monero_ico.svg";
+// import XMRIcon from "../../assets/monero_ico.svg";
 import BlogIcon from "../../assets/blog_ico.svg";
 import DiscordIcon from "../../assets/discord_ico.svg";
 import TwitterIcon from "../../assets/twitter_ico.svg";
@@ -65,11 +65,11 @@ const donationData: DonationItem[] = [
         icon: <ETHIcon />,
         address: "0x206c52b78141498e74FF074301ea90888C40c178"
     },
-    {
-        name: "XMR",
-        icon: <XMRIcon />,
-        address: "45gp9WTobeB5Km3kLQgVmPJkvm9rSmg4gdyHheXqXijXYMjUY48kLgL7QEz5Ar8z9vQioQ68WYDKsQsjAEonSeFX4UeLSiX"
-    }
+    // {
+    //     name: "XMR",
+    //     icon: <XMRIcon />,
+    //     address: "45gp9WTobeB5Km3kLQgVmPJkvm9rSmg4gdyHheXqXijXYMjUY48kLgL7QEz5Ar8z9vQioQ68WYDKsQsjAEonSeFX4UeLSiX"
+    // }
 ];
 
 function Footer({className}: {className?: string}) {
@@ -149,7 +149,7 @@ function Footer({className}: {className?: string}) {
                         <Link className={styles.socials__item} href="https://blog.zano.org/" target="_blank">
                             <BlogIcon />
                         </Link>
-                        <Link className={styles.socials__item} href="https://discord.com/invite/zano" target="_blank">
+                        <Link className={styles.socials__item} href="https://discord.gg/wE3rmYY" target="_blank">
                             <DiscordIcon />
                         </Link>
                         <Link className={styles.socials__item} href="https://twitter.com/zano_project" target="_blank">

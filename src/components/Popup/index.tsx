@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import PopupProps from './types';
 
-export default function Popup<ContentProps extends {}>(props: PopupProps<ContentProps>) {
+export default function Popup<ContentProps extends object>(props: PopupProps<ContentProps>) {
     const [popupContainer, setPopupContainer] = useState<HTMLDivElement | null>(null);
 
     function getPopupElement() {
