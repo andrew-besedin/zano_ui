@@ -1,0 +1,146 @@
+.wrapper {
+    --socials-surface-computed: var(--socials-surface, var(--bg-color, #0c0c3a));
+    --socials-text-computed: var(--socials-text, var(--text-color, #ffffff));
+    --socials-item-hover-computed: var(--socials-item-hover, var(--menu-hover-color, #1f1f4a));
+    --socials-subtle-computed: var(--socials-subtle, var(--light-color, #ffffff1a));
+    --socials-subtle-hover-computed: var(
+        --socials-subtle-hover,
+        var(--light-hover-color, #ffffff33)
+    );
+    --socials-icon-color-computed: var(--socials-icon-color, #ffffff);
+    --socials-tile-bg-computed: var(
+        --socials-tile-bg,
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)
+    );
+    --socials-tile-border-computed: var(--socials-tile-border, var(--light-color, #ffffff1a));
+    --socials-tile-shadow-computed: var(--socials-tile-shadow, none);
+
+    [data-theme='light'] & {
+        --socials-icon-color-computed: var(--socials-icon-color, #555a6e);
+        --socials-tile-bg-computed: var(
+            --socials-tile-bg,
+            linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.5) 100%)
+        );
+        --socials-tile-border-computed: var(--socials-tile-border, transparent);
+        --socials-tile-shadow-computed: var(--socials-tile-shadow, 0px 3px 10px -3px #0c0c3a40);
+    }
+
+    max-width: 420px;
+    width: 100%;
+    height: 100%;
+    padding-inline: 20px;
+    position: fixed;
+    padding-top: 40px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-y: auto;
+}
+
+.popup {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: var(--socials-surface-computed);
+    color: var(--socials-text-computed);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__close {
+        transition: 0.3s opacity ease;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        line-height: 0;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 100%;
+    }
+
+    &__socials {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &_item {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            gap: 12px;
+            color: var(--socials-text-computed);
+            text-decoration: none;
+            transition: 0.3s background-color ease;
+
+            &:hover {
+                background-color: var(--socials-item-hover-computed);
+            }
+
+            .icon {
+                box-sizing: border-box;
+                width: 32px;
+                min-width: 32px;
+                height: 32px;
+                display: grid;
+                place-content: center;
+                border-radius: 6px;
+                border: 1px solid var(--socials-tile-border-computed);
+                background: var(--socials-tile-bg-computed);
+                box-shadow: var(--socials-tile-shadow-computed);
+
+                svg {
+                    transform: scale(0.8);
+
+                    :where(path, rect):not(mask *) {
+                        fill: var(--socials-icon-color-computed);
+                    }
+                }
+            }
+
+            .text {
+                font-weight: 600;
+                line-height: 100%;
+            }
+        }
+    }
+
+    &__allLinks {
+        cursor: pointer;
+        transition: 0.3s all ease;
+        border-radius: 10px;
+        padding: 16px;
+        background-color: var(--socials-subtle-computed);
+        color: var(--socials-text-computed);
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        svg path {
+            fill: var(--socials-text-computed);
+        }
+
+        &:hover {
+            background-color: var(--socials-subtle-hover-computed);
+        }
+    }
+}
